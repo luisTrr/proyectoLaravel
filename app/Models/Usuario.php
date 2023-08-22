@@ -7,6 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Usuario extends Model
 {
+    protected $fillable = [
+        'nombre', // Agregado 'nombre' aquí
+        'correo',
+        'tipo',
+        // Otros atributos permitidos
+    ];
+    public $timestamps = false;
     use HasFactory;
     public function alquileres()
     {
