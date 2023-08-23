@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class TipoAlquiler extends Model
 {
+    protected $table = 'tiposalquiler'; 
     use HasFactory;
     public function alquileres()
     {
