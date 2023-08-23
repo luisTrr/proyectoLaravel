@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Alquiler;
+use App\Models\Usuario;
+use App\Models\TipoAlquiler;
+use App\Models\RecursoAlquiler;
 
 class AlquilerController extends Controller
 {
@@ -13,11 +16,17 @@ class AlquilerController extends Controller
         $alquileres = Alquiler::all();
         return view('alquileres.index', compact('alquileres'));
     }
-
     public function create()
     {
-        return view('alquileres.create');
+        $recursosAlquiler = RecursoAlquiler::all();
+        $usuarios = Usuario::all(); // Obtén la lista de usuarios
+        $tiposAlquiler = TipoAlquiler::all(); // Obtén la lista de tipos de alquiler
+        return view('alquileres.create', compact('usuarios', 'tiposAlquiler', 'recursosAlquiler'));
     }
+    // public function create()
+    // {
+    //     return view('alquileres.create');
+    // }
 
     public function store(Request $request)
     {
