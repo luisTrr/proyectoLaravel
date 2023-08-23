@@ -42,6 +42,6 @@ Route::get('/recursos-alquiler', [RecursoAlquilerController::class, 'index'])->n
 Route::get('/recursos-alquiler/create', [RecursoAlquilerController::class, 'create'])->name('recursos-alquiler.create');
 
 // Rutas para Alquileres
-Route::get('/alquileres', [AlquilerController::class, 'index'])->name('alquileres.index');
+Route::get('/alquileres.', [AlquilerController::class, 'index'])->name('alquileres.index');
 Route::get('/alquileres/create', [AlquilerController::class, 'create'])->name('alquileres.create');
 Route::post('/alquileres', [AlquilerController::class, 'store'])->name('alquileres.store');
