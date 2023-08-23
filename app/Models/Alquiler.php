@@ -7,7 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Alquiler extends Model
 {
+    protected $fillable = [
+        'titulo', 'direccion', 'precio', 'usuario_id', 'tipo_alquiler_id', 'recurso_id','adventista','celular','descripcion',
+    ];
     protected $table = 'alquileres'; 
+    public $timestamps = false;
     use HasFactory;
     public function usuario()
     {

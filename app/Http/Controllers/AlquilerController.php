@@ -31,12 +31,15 @@ class AlquilerController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
+            'tipo_alquiler_id' => 'required|exists:tiposalquiler,id',
+            'usuario_id' => 'required|exists:usuarios,id',
             'titulo' => 'required|max:100',
+            'descripcion' => 'required|max:200',
+            'celular' => 'required|numeric',
             'direccion' => 'required|max:200',
             'precio' => 'required|numeric',
-            'usuario_id' => 'required|exists:usuarios,id',
-            'tipo_alquiler_id' => 'required|exists:tipo_alquileres,id',
-            'recurso_alquiler_id' => 'required|exists:recurso_alquileres,id',
+            'recursos_id' => 'required|exists:recursosalquiler,id',
+            'adventista' => 'required|boolean',    
         ]);
 
         Alquiler::create($validatedData);

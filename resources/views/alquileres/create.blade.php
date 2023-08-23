@@ -11,16 +11,12 @@
     <form action="{{ route('alquileres.store') }}" method="POST">
         @csrf
         <div class="form-group">
-            <label for="titulo">Título</label>
-            <input type="text" id="titulo" name="titulo" class="form-control" required>
-        </div>
-        <div class="form-group">
-            <label for="direccion">Dirección</label>
-            <input type="text" id="direccion" name="direccion" class="form-control" required>
-        </div>
-        <div class="form-group">
-            <label for="precio">Precio</label>
-            <input type="number" id="precio" name="precio" class="form-control" required>
+            <label for="tipo_alquiler_id">Tipo de Alquiler</label>
+            <select id="tipo_alquiler_id" name="tipo_alquiler_id" class="form-control" required>
+                @foreach ($tiposAlquiler as $tipoAlquiler)
+                    <option value="{{ $tipoAlquiler->id }}">{{ $tipoAlquiler->tipo }}</option>
+                @endforeach
+            </select>
         </div>
         <div class="form-group">
             <label for="usuario_id">Usuario</label>
@@ -31,19 +27,38 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="tipo_alquiler_id">Tipo de Alquiler</label>
-            <select id="tipo_alquiler_id" name="tipo_alquiler_id" class="form-control" required>
-                @foreach ($tiposAlquiler as $tipoAlquiler)
-                    <option value="{{ $tipoAlquiler->id }}">{{ $tipoAlquiler->tipo }}</option>
+            <label for="titulo">Título</label>
+            <input type="text" id="titulo" name="titulo" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="descripcion">Descripcion</label>
+            <input type="text" id="descripcion" name="descripcion" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="celular">Celular</label>
+            <input type="number" id="celular" name="celular" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="direccion">Dirección</label>
+            <input type="text" id="direccion" name="direccion" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="precio">Precio</label>
+            <input type="number" id="precio" name="precio" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="recursos_id">Recurso de Alquiler</label>
+            <select id="recursos_id" name="recursos_id" class="form-control" required>
+                @foreach ($recursosAlquiler as $recursoAlquiler)
+                    <option value="{{ $recursoAlquiler->id }}">Wifi: {{ $recursoAlquiler->wifi ? 'Sí' : 'No' }} - Agua Caliente: {{ $recursoAlquiler->agua_caliente ? 'Sí' : 'No' }}</option>
                 @endforeach
             </select>
         </div>
         <div class="form-group">
-            <label for="recurso_alquiler_id">Recurso de Alquiler</label>
-            <select id="recurso_alquiler_id" name="recurso_alquiler_id" class="form-control" required>
-                @foreach ($recursosAlquiler as $recursoAlquiler)
-                    <option value="{{ $recursoAlquiler->id }}">Wifi: {{ $recursoAlquiler->wifi ? 'Sí' : 'No' }} - Agua Caliente: {{ $recursoAlquiler->agua_caliente ? 'Sí' : 'No' }}</option>
-                @endforeach
+            <label for="adventista">¿Es recidencia adventista?</label>
+            <select id="adventista" name="adventista" class="form-control" required>
+                <option value="1">Sí</option>
+                <option value="0">No</option>
             </select>
         </div>
         <button type="submit" class="btn btn-primary">Guardar</button>
