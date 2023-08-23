@@ -7,8 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class TipoAlquiler extends Model
 {
+    protected $fillable = [
+        'tipo',
+    ];
     protected $table = 'tiposalquiler'; 
     use HasFactory;
+    public $timestamps = false;
     public function alquileres()
     {
         return $this->hasMany(Alquiler::class);

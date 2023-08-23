@@ -35,6 +35,7 @@ Route::delete('/usuarios/{usuario}', [UsuarioController::class, 'destroy'])->nam
 // Rutas para Tipos de Alquiler
 Route::get('/tipos-alquiler', [TipoAlquilerController::class, 'index'])->name('tipos-alquiler.index');
 Route::get('/tipos-alquiler/create', [TipoAlquilerController::class, 'create'])->name('tipos-alquiler.create');
+Route::post('/tipos-alquiler', [TipoAlquilerController::class, 'store'])->name('tipos-alquiler.store');
 
 // Rutas para Recursos de Alquiler
 Route::get('/recursos-alquiler', [RecursoAlquilerController::class, 'index'])->name('recursos-alquiler.index');
